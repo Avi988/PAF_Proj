@@ -21,7 +21,7 @@ public class Item {
 	 con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/pafDB", "root",  "");
 	 //For testing
 
-//	 System.out.print("Successfully connected");
+	 //	 System.out.print("Successfully connected");
 	 }
 	 catch(Exception e)
 	 {
@@ -30,6 +30,10 @@ public class Item {
 
 	 return con;
 	}
+	
+	
+	
+	
 	
 	public String insertIncompleteResearch(String ID, String researcher_name, String email, String start_date, String research_category, String price)
 	{
@@ -209,6 +213,39 @@ public class Item {
 	 }
 	return output;
 	}
+	
+	
+	public String deleteIncompleteResearch(String ID)
+	 {
+	 String output = "";
+	 try
+	 {
+	 Connection con = connect();
+	 if (con == null)
+	 {
+	 return "Error while connecting to the database for deleting.";
+	 }
+	 // create a prepared statement
+	 String query = "delete from incompleteResearch where ID=?";
+	 PreparedStatement preparedStmt = con.prepareStatement(query);
+	 // binding values
+	 preparedStmt.setInt(1, Integer.parseInt(ID));
+	 // execute the statement
+	 preparedStmt.execute();
+	 con.close();
+	 String newItems = readItems();
+	 output = "{\"status\":\"success\", \"data\": \"" +
+	 newItems + "\"}";
+	 }
+	 catch (Exception e)
+	 {
+	 output = "{\"status\":\"error\", \"data\":\"Error while deleting the item.\"}";
+	 System.err.println(e.getMessage());
+	 }
+	 return output;
+	 } 
+	
+	
 
 
 }
