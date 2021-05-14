@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="PAF_Lab9/src"/>
+	<classpathentry kind="lib" path="PAF_Lab9/WebContent/WEB-INF/lib/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ASUS/Downloads/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ASUS/Downloads/javax.servlet-3.1.jar"/>
+	<classpathentry kind="output" path="PAF_Lab9/build/classes"/>
+</classpath>
